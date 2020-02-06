@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS `book_author`;
 
 CREATE TABLE `books` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `title` varchar(255),
+  `name` varchar(255),
   `status` varchar(255),
   `price` int,
   `published_year` int,

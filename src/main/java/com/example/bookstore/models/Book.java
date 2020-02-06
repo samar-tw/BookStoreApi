@@ -17,7 +17,7 @@ import java.util.Set;
 public class Book extends BasicEntity {
 
     @Column
-    private String title;
+    private String name;
 
     @Column
     private double price;
@@ -47,12 +47,12 @@ public class Book extends BasicEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {
