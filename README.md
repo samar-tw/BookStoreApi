@@ -101,7 +101,7 @@ Example Response
         }
 ]
 ````
-
+---
 **POST** /book - create a book (abstract book, this doesn't add book to the shelf)
 
 ````
@@ -115,7 +115,7 @@ Example Response
         1
     ],
     "createdAt": "2019-06-29 14:09:18",
-    "updatedAt": "2019-00-12 09:52:17"
+    "updatedAt": "2019-09-12 09:52:17"
 }
 ````
 Example Response
@@ -125,4 +125,30 @@ Example Response
     "id": 1
 }
 ````
+---
+
+**PATCH** /book - update a book 
+
+````
+{
+    "id":1,
+    "name": "Updated book",
+    "price": 1,
+    "publishedYear": 1995,
+    "category": "Action and Adventure",
+    "description": "Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus",
+    "authors": [
+        1
+    ],
+    "createdAt": "2019-06-29 14:09:18",
+    "updatedAt": "2019-09-12 09:52:17"
+}
+````
+Example Response (No Response body)
+
+````
+HTTP 200 OK
+````
+---
+
 
