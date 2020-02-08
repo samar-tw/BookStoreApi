@@ -1,6 +1,5 @@
 # BookStoreApi
 
----
 #### Requirements
 Implementing a Book store REST API using Spring Framework for Company XYZ.
 - Frontend should be able to display a list of books which contain the Name and Author's name
@@ -11,6 +10,13 @@ Implementing a Book store REST API using Spring Framework for Company XYZ.
 the system.
 - The API should be able to handle Unexpected scenarios and return to the clients.
 ---
+
+## Setup guide
+
+#### Minimum Requirements
+
+ - Java 11
+ - Maven 3.x
 
 #### Install the application
 
