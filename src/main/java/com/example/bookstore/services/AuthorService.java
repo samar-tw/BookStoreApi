@@ -8,6 +8,8 @@ import com.example.bookstore.api.model.request.CreateAuthorRequest;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Ehtiram_Abdullayev on 2/6/2020
@@ -47,5 +49,11 @@ public class AuthorService {
             throw new NotFoundException("Author not found!");
         }
         authorRepository.deleteById(id);
+    }
+
+    public Set<Author> getAuthorsByIds(List<Integer> authorIds) {
+        return authorIds.stream()
+                .map(this::findById)
+                .collect(Collectors.toSet());
     }
 }
