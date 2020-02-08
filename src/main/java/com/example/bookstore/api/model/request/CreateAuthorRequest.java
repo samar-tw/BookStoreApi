@@ -1,5 +1,14 @@
 package com.example.bookstore.api.model.request;
 
+import com.example.bookstore.config.ValidationConfig;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 /**
@@ -7,9 +16,19 @@ import java.time.LocalDate;
  * @project book-store
  */
 public class CreateAuthorRequest {
-
+    @NotBlank(message = "{firstName.notBlank}")
+    @Size(max = ValidationConfig.MAX_LENGTH_NAME, message = "{firstName.size}")
+    @Pattern(regexp = ValidationConfig.PATTERN_NAME, message = "{firstName.pattern}")
     private String firstName;
+
+    @NotBlank(message = "{lastName.notBlank}")
+    @Size(max = ValidationConfig.MAX_LENGTH_NAME, message = "{lastName.size}")
+    @Pattern(regexp = ValidationConfig.PATTERN_NAME, message = "{lastName.pattern}")
     private String lastName;
+
+    @Past(message = "{birthDate.past}")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate birthDate;
 
     public CreateAuthorRequest() {

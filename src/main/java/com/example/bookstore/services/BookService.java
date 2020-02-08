@@ -8,6 +8,7 @@ import com.example.bookstore.models.Book;
 import com.example.bookstore.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,7 @@ import java.util.Set;
  * @project book-store
  */
 @Service
+@Transactional
 public class BookService {
     private final BookRepository bookRepository;
     private final AuthorService authorService;

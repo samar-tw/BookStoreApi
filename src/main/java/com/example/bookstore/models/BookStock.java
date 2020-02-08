@@ -26,11 +26,11 @@ public class BookStock extends BasicEntity {
 
     @Column(updatable = false)
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime bookAddedToShelfAt;
 
     @Column
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private LocalDateTime bookAtShelfUpdatedAt;
 
     public Book getBook() {
         return book;
@@ -48,19 +48,11 @@ public class BookStock extends BasicEntity {
         this.isbn = isbn;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getBookAddedToShelfAt() {
+        return bookAddedToShelfAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    public LocalDateTime getBookAtShelfUpdatedAt() {
+        return bookAtShelfUpdatedAt;
     }
 }
