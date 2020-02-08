@@ -36,15 +36,93 @@ the system.
   $ mvn spring-boot:run
   ```
 
-5. You can change the default port in the `application.properties` file:
+5. You can change the default port (`default port is 5050`) in the `application.properties` file:
 
   ```
-  server.port=5000
+  server.port=5050
   ```
 
-6. [Optional] Navigate to `http://localhost:5000/console` in your browser to access the database. You can change the default credentials in the `application.properties` file:
+6. [Optional] Navigate to `http://localhost:5050/console` in your browser to access the database. You can change the default credentials in the `application.properties` file:
 
   ```
   spring.datasource.username=user
   spring.datasource.password=password
   ```
+---
+
+## API
+**GET** /book - get all books (abstract book for adding to shelf later)
+
+Example Request
+```
+localhost:5050/book
+```
+
+
+Example Response
+
+````
+[
+	{
+            "id": 1,
+            "name": "Magna a neque",
+            "price": 4656.0,
+            "publishedYear": 2002,
+            "category": "Action and Adventure",
+            "description": "Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus",
+            "authors": [
+                {
+                    "id": 3,
+                    "firstName": "Germane",
+                    "lastName": "Mckee",
+                    "birthDate": "1960-04-23",
+                    "createdAt": "2020-08-07 14:12:01",
+                    "updatedAt": null
+                },
+                {
+                    "id": 1,
+                    "firstName": "Erica",
+                    "lastName": "French",
+                    "birthDate": "1951-10-15",
+                    "createdAt": "2019-09-23 13:30:52",
+                    "updatedAt": "2019-04-18 19:22:38"
+                },
+                {
+                    "id": 4,
+                    "firstName": "Kylee",
+                    "lastName": "Diaz",
+                    "birthDate": "1977-09-19",
+                    "createdAt": "2019-02-02 05:55:11",
+                    "updatedAt": null
+                }
+            ],
+            "createdAt": "2019-06-29 14:09:18",
+            "updatedAt": "2019-05-12 09:52:17"
+        }
+]
+````
+
+**POST** /book - create a book (abstract book, this doesn't add book to the shelf)
+
+````
+{
+    "name": "Some Book",
+    "price": 1,
+    "publishedYear": 2002,
+    "category": "Action and Adventure",
+    "description": "Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus",
+    "authors": [
+        1
+    ],
+    "createdAt": "2019-06-29 14:09:18",
+    "updatedAt": "2019-00-12 09:52:17"
+}
+````
+Example Response
+
+````
+{
+    "id": 1
+}
+````
+
