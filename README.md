@@ -51,6 +51,8 @@ the system.
 ---
 
 ## API
+
+#### Abstract book endpoints
 **GET** /book - get all books (abstract book for adding to shelf later)
 
 Example Request
@@ -163,3 +165,99 @@ HTTP 200 OK
 
 ---
 
+#### Author of book endpoints
+**GET** /author - return all the authors
+
+Example Request
+```
+localhost:5050/author
+```
+
+
+Example Response
+
+````
+[
+    {
+        "id": 1,
+        "firstName": "Erica",
+        "lastName": "French",
+        "birthDate": "1951-10-15",
+        "books": [],
+        "createdAt": "2019-09-23 13:30:52",
+        "updatedAt": "2019-04-18 19:22:38"
+    },
+ {
+        "id": 2,
+        "firstName": "Karleigh",
+        "lastName": "Donovan",
+        "birthDate": "1945-01-23",
+        "books": [
+            {
+                "id": 2,
+                "name": "Nulla aliquet",
+                "price": 3807.0,
+                "publishedYear": 1967,
+                "category": "Mystery",
+                "description": "Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum",
+                "createdAt": "2019-09-11 20:17:47",
+                "updatedAt": "2020-07-10 11:56:59"
+            }
+        ],
+        "createdAt": "2019-10-17 23:54:56",
+        "updatedAt": "2019-09-08 07:47:09"
+    }
+]
+````
+
+**POST** /author - create a new author
+
+````
+{
+    "firstName": "Ehtiram",
+    "lastName": "Abdullayev",
+    "birthDate": "1951-10-15"
+}
+````
+Example Response
+
+````
+{
+    "id": 1
+}
+````
+
+
+**GET** /author/:id - get the author with the given id
+
+Example Request
+```
+localhost:5050/author/1
+```
+
+Example Response
+
+````
+{
+    "id": 9,
+    "firstName": "Ehtiram",
+    "lastName": "Abdullayev",
+    "birthDate": "1951-10-15",
+    "books": [],
+    "createdAt": "2020-02-09 04:06:47",
+    "updatedAt": "2020-02-09 04:06:47"
+}
+````
+
+**DELETE** /book?:id - delete an author 
+
+````
+localhost:5050/author?id=1
+````
+Example Response (No Response body)
+
+````
+HTTP 200 OK
+````
+
+---
