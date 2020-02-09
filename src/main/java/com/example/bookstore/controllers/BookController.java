@@ -45,7 +45,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public CreateEntityResponse createBook( @Valid @RequestBody CreateBookRequest request) {
+    public CreateEntityResponse createBook(@Valid @RequestBody CreateBookRequest request) {
         Integer id = bookService.createBook(request);
         return new CreateEntityResponse(id);
     }
@@ -56,7 +56,7 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public void deleteBook(@RequestParam(name = "id") Integer id) {
+    public void deleteBook(@NotNull(message = "{id.notNull}") @RequestParam(name = "id") Integer id) {
         bookService.deleteBook(id);
     }
 

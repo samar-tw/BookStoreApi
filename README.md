@@ -150,5 +150,16 @@ Example Response (No Response body)
 HTTP 200 OK
 ````
 ---
+**DELETE** /book?:id - delete a book 
 
+````
+localhost:5050/book?id=1
+````
+Example Response (No Response body)
+
+````
+HTTP 200 OK
+````
+
+---
 
