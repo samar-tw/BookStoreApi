@@ -208,6 +208,8 @@ Example Response
         "updatedAt": "2019-09-08 07:47:09"
     }
 ]
+---
+
 ````
 
 **POST** /author - create a new author
@@ -226,6 +228,7 @@ Example Response
     "id": 1
 }
 ````
+---
 
 
 **GET** /author/:id - get the author with the given id
@@ -248,6 +251,7 @@ Example Response
     "updatedAt": "2020-02-09 04:06:47"
 }
 ````
+---
 
 **DELETE** /book?:id - delete an author 
 
@@ -262,3 +266,148 @@ HTTP 200 OK
 
 ---
 ### Book related endpoints (adding book to shelf in the store, removing and updating book from the store shelf )
+
+### Author of book related endpoints
+**GET** /bookShelf - get all the books in the store
+
+Example Request
+```
+localhost:5050/bookShelf
+```
+
+
+Example Response
+
+````
+[
+    {
+        "id": 1,
+        "isbn": "9780134550107",
+        "book": {
+            "id": 2,
+            "name": "Nulla aliquet",
+            "price": 3807.0,
+            "publishedYear": 1967,
+            "category": "Mystery",
+            "description": "Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum",
+            "authors": [
+                {
+                    "id": 2,
+                    "firstName": "Karleigh",
+                    "lastName": "Donovan",
+                    "birthDate": "1945-01-23",
+                    "createdAt": "2019-10-17 23:54:56",
+                    "updatedAt": "2019-09-08 07:47:09"
+                },
+                {
+                    "id": 5,
+                    "firstName": "Juliet",
+                    "lastName": "Hart",
+                    "birthDate": "1955-02-02",
+                    "createdAt": "2019-02-02 05:55:11",
+                    "updatedAt": "2020-05-06 13:29:29"
+                }
+            ],
+            "createdAt": "2019-09-11 20:17:47",
+            "updatedAt": "2020-07-10 11:56:59"
+        },
+        "bookAddedToShelfAt": "2020-02-09 04:23:31",
+        "bookAtShelfUpdatedAt": "2020-02-09 04:23:31"
+    }
+]
+````
+---
+
+**POST** /bookShelf - add a new book to the shelf in store, returns id of newly created book
+
+````
+{
+    "bookId": 2,
+    "isbn": 9780134550107
+}
+````
+Example Response
+
+````
+{
+    "id": 1
+}
+````
+---
+
+**POST** /bookShelf/book/name - search the book with the given name in request body
+
+````
+{
+    "bookName": "que"
+}
+````
+Example Response
+
+````
+{
+    "bookStocks": [
+        {
+            "id": 1,
+            "isbn": "9780134550107",
+            "book": {
+                "id": 2,
+                "name": "Nulla aliquet",
+                "price": 3807.0,
+                "publishedYear": 1967,
+                "category": "Mystery",
+                "description": "Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum",
+                "authors": [
+                    {
+                        "id": 2,
+                        "firstName": "Karleigh",
+                        "lastName": "Donovan",
+                        "birthDate": "1945-01-23",
+                        "createdAt": "2019-10-17 23:54:56",
+                        "updatedAt": "2019-09-08 07:47:09"
+                    },
+                    {
+                        "id": 5,
+                        "firstName": "Juliet",
+                        "lastName": "Hart",
+                        "birthDate": "1955-02-02",
+                        "createdAt": "2019-02-02 05:55:11",
+                        "updatedAt": "2020-05-06 13:29:29"
+                    }
+                ],
+                "createdAt": "2019-09-11 20:17:47",
+                "updatedAt": "2020-07-10 11:56:59"
+            },
+            "bookAddedToShelfAt": "2020-02-09 04:23:31",
+            "bookAtShelfUpdatedAt": "2020-02-09 04:23:31"
+        }
+    ],
+    "numberOfBooks": 1
+}
+````
+---
+
+**PATCH** /bookShelf - update a book in the shelf  
+
+````
+{
+	"id":1,
+	"isbn":9781402894626
+}
+````
+Example Response (No Response body)
+
+````
+HTTP 200 OK
+````
+---
+**DELETE** /bookShelf?:id - remove a physical book from the shelf
+
+````
+http://localhost:5050/bookShelf?id=1
+````
+Example Response (No Response body)
+
+````
+HTTP 200 OK
+````
