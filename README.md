@@ -52,7 +52,7 @@ the system.
 
 ## API
 
-#### Abstract book endpoints
+### Abstract book endpoints
 **GET** /book - get all books (abstract book for adding to shelf later)
 
 Example Request
@@ -165,7 +165,7 @@ HTTP 200 OK
 
 ---
 
-#### Author of book endpoints
+### Author of book related endpoints
 **GET** /author - return all the authors
 
 Example Request
@@ -239,7 +239,7 @@ Example Response
 
 ````
 {
-    "id": 9,
+    "id": 1,
     "firstName": "Ehtiram",
     "lastName": "Abdullayev",
     "birthDate": "1951-10-15",
@@ -261,3 +261,4 @@ HTTP 200 OK
 ````
 
 ---
+### Book related endpoints (adding book to shelf in the store, removing and updating book from the store shelf )
