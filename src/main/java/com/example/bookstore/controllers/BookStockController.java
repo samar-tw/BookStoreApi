@@ -45,7 +45,7 @@ public class BookStockController {
     }
 
     @RequestMapping(value = "/book/name", method = RequestMethod.POST)
-    public BookStockResponseWithBookCountResponse getBookByBookTitle(@Valid @RequestBody SearchByBookNameRequest bookNameRequest) {
+    public BookStockResponseWithBookCountResponse getBookByBookByBookName(@Valid @RequestBody SearchByBookNameRequest bookNameRequest) {
         BookStockResponseWithBookCountResponse response =
                 bookStockService.getBookInShelveByBookNameWithAvailableBookCount(bookNameRequest.getBookName());
         return response;

@@ -208,9 +208,10 @@ Example Response
         "updatedAt": "2019-09-08 07:47:09"
     }
 ]
----
 
 ````
+---
+
 
 **POST** /author - create a new author
 

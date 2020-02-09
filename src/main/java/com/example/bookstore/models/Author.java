@@ -33,7 +33,7 @@ public class Author extends BasicEntity {
     @Column
     private LocalDate birthDate;
 
-    @ManyToMany(mappedBy = "bookAuthors", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany(mappedBy = "bookAuthors", cascade = {CascadeType.ALL})
     @JsonIgnoreProperties("bookAuthors")
     private Set<Book> authorBooks;
 

@@ -31,7 +31,7 @@ public class Book extends BasicEntity {
     @Column
     private String description;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "book_author",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),

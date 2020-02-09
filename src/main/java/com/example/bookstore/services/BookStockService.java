@@ -74,8 +74,8 @@ public class BookStockService {
         return mapBookStockListToWrapperClass(bookStocks);
     }
 
-    public BookStockResponseWithBookCountResponse getBookInShelveByBookNameWithAvailableBookCount(String booKName) {
-        List<BookStock> bookStocks = getBookStocksByBookByName(booKName);
+    public BookStockResponseWithBookCountResponse getBookInShelveByBookNameWithAvailableBookCount(String bookName) {
+        List<BookStock> bookStocks = getBookStocksByBookByName(bookName);
         return mapBookStockListToWrapperClass(bookStocks);
     }
 
