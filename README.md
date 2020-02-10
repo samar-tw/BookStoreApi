@@ -268,7 +268,6 @@ HTTP 200 OK
 ---
 ### Book related endpoints (adding book to shelf in the store, removing and updating book from the store shelf )
 
-### Author of book related endpoints
 **GET** /bookShelf - get all the books in the store
 
 Example Request
