@@ -53,7 +53,11 @@ jobs:
 #      - run: mvn clean compile jib:build -Dimage=EhtiramA/springboot-api:$CIRCLE_BUILD_NUM
 
       # run tests!
-      - run: mvn integration-test
+      - run: mvn test
+
+      - store_artifacts:
+          path: target
+
 
       - run:
           name: Send to CodeCov
