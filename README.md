@@ -1,5 +1,6 @@
 # BookStoreApi
 
+[![codecov](https://codecov.io/gh/ehtiramabdullayev/BookStoreApi/branch/master/graph/badge.svg)](https://codecov.io/gh/ehtiramabdullayev/BookStoreApi)
 #### Requirements
 Implementing a Book store REST API using Spring Framework for Company XYZ.
 - Frontend should be able to display a list of books which contain the Name and Author's name
