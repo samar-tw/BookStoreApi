@@ -132,7 +132,6 @@ public class BookStockServiceTest {
 
     @Test(expected = NotFoundException.class)
     public void test_getBookByNameWhenBookIsNull_notFound() {
-        when(bookStockRepository.getBookStocksByBookNameContainingIgnoreCase(anyString())).thenReturn(Collections.emptyList());
         bookStockService.getBookInShelveByBookNameWithAvailableBookCount(null);
     }
 }
