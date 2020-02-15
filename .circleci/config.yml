@@ -95,14 +95,14 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - integration-test
+      - build
       - unit-test:
           requires:
-            - integration-test
-      - build:
+            - build
+      - integration-test:
           requires:
+            - build
             - unit-test
-            - integration-test
 
 
 #
