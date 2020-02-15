@@ -69,28 +69,32 @@ jobs:
           name: Send to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
 
-#  unit-test:
-#    - docker:
-#        - image: circleci/openjdk:11.0.3-jdk-stretch
-#      steps:
-#        - checkout
-#        - run: mvn test
+  unit-test:
+    - docker:
+        - image: circleci/openjdk:11.0.3-jdk-stretch
+    - working_directory: ~/book-store
 
-#
-#  integration-test:
-#    - docker:
-#        # specify the version you desire here
-#        - image: circleci/openjdk:11.0.3-jdk-stretch
-#        # run integration tests!
-#      steps:
-#          - checkout
-#          - run: mvn clean verify -P integration-test
-#workflows:
-#  version: 2
-#  build_and_test:
-#    jobs:
-#      - build
-#      - unit-test
-##      - integration-test
+      steps:
+        - checkout
+        - run: mvn test
+
+
+  integration-test:
+    - docker:
+        # specify the version you desire here
+        - image: circleci/openjdk:11.0.3-jdk-stretch
+    - working_directory: ~/book-store
+
+      # run integration tests!
+      steps:
+          - checkout
+          - run: mvn clean verify -P integration-test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - unit-test
+      - integration-test
 
 
