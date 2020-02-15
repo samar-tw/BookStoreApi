@@ -69,10 +69,11 @@ jobs:
           name: Send to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
 
+
   unit-test:
-    - docker:
+     docker:
         - image: circleci/openjdk:11.0.3-jdk-stretch
-    - working_directory: ~/book-store
+     working_directory: ~/book-store
 
       steps:
         - checkout
@@ -80,10 +81,10 @@ jobs:
 
 
   integration-test:
-    - docker:
+     docker:
         # specify the version you desire here
         - image: circleci/openjdk:11.0.3-jdk-stretch
-    - working_directory: ~/book-store
+     working_directory: ~/book-store
 
       # run integration tests!
       steps:
