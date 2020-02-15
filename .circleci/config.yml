@@ -52,8 +52,8 @@ jobs:
       # build and push docker image to docker hub
 #      - run: mvn clean compile jib:build -Dimage=EhtiramA/springboot-api:$CIRCLE_BUILD_NUM
 
-      # run tests!
-      - run: mvn test
+      # run integration tests!
+      - run: mvn clean verify -P integration-test
 
       - store_artifacts:
           path: target
