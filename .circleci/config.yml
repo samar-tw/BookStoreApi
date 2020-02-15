@@ -95,9 +95,29 @@ workflows:
   version: 2
   build_and_test:
     jobs:
+      - integration-test
+      - unit-test:
+          requires:
+            - integration-test
       - build:
           requires:
-            -unit-test
-            -integration-test
+            - unit-test
+            - integration-test
 
 
+#
+#workflows:
+#  version: 2
+#  build-and-deploy:
+#    jobs:
+#      - bundle_dependencies
+#      - rake_test:
+#          requires:
+#            - bundle_dependencies
+#      - precompile_assets:
+#          requires:
+#            - bundle_dependencies
+#      - deploy:
+#          requires:
+#            - rake_test
+#            - precompile_assets
