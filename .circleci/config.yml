@@ -47,10 +47,13 @@ jobs:
           key: book-store-{{ checksum "pom.xml" }}
 
       #package into jar
-      - run: mvn clean package
+      - run: mvn clean -Dmaven.test.skip=true package
 
       # build and push docker image to docker hub
 #      - run: mvn clean compile jib:build -Dimage=EhtiramA/springboot-api:$CIRCLE_BUILD_NUM
+
+      # run unit tests!
+      - run: mvn test
 
       # run integration tests!
       - run: mvn clean verify -P integration-test
