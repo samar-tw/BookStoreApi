@@ -78,19 +78,19 @@ jobs:
         - checkout
         - run: mvn test
 
-
-  integration-test:
-    - docker:
-        # specify the version you desire here
-        - image: circleci/openjdk:11.0.3-jdk-stretch
-        # run integration tests!
-      steps:
-          - checkout
-          - run: mvn clean verify -P integration-test
+#
+#  integration-test:
+#    - docker:
+#        # specify the version you desire here
+#        - image: circleci/openjdk:11.0.3-jdk-stretch
+#        # run integration tests!
+#      steps:
+#          - checkout
+#          - run: mvn clean verify -P integration-test
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
       - unit-test
-      - integration-test
+#      - integration-test
