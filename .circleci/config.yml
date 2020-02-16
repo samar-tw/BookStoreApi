@@ -1,6 +1,5 @@
 version: 2.1
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.0
+
 jobs:
   build:
     docker:
@@ -21,7 +20,9 @@ jobs:
     steps:
       #git pull
       - checkout
-      - sonarcloud/scan
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar
 
       #setup testing env
       #      - setup_remote_docker:
