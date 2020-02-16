@@ -23,6 +23,7 @@ jobs:
     steps:
       #git pull
       - checkout
+      - sonarcloud/scan
 
       #setup testing env
       #      - setup_remote_docker:
@@ -69,6 +70,8 @@ jobs:
           name: Send to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.0
 
   unit-test:
     docker:
@@ -95,7 +98,8 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - build:
+          context: sonarcloud
       - unit-test:
           requires:
             - build
@@ -121,3 +125,5 @@ workflows:
 #          requires:
 #            - rake_test
 #            - precompile_assets
+
+
