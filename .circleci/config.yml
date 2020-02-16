@@ -1,12 +1,6 @@
-# Java Maven CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
 version: 2.1
-
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.0
-
 jobs:
   build:
     docker:
@@ -101,8 +95,8 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build:
-          context: sonarcloud
+      - build
+#          context: sonarcloud
       - unit-test:
           requires:
             - build
