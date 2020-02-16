@@ -2,8 +2,6 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.0
 version: 2.1
 jobs:
   build:
@@ -94,6 +92,8 @@ jobs:
       - checkout
       - run: mvn clean verify -P integration-test
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.0
 workflows:
   version: 2
   build_and_test:
