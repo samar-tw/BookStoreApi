@@ -24,6 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @author Ehtiram_Abdullayev on 2/9/2020
  * @project book-store
  */
+//@TestG
 public class AuthorControllerIntegrationTest extends AbstractControllerIntegrationTest{
 
     @Autowired
@@ -38,6 +39,7 @@ public class AuthorControllerIntegrationTest extends AbstractControllerIntegrati
     }
 
     @Test
+    //junit5 -- @Tag("integration")
     public void test_createAuthor_successfully() throws Exception {
         CreateAuthorRequest request = AuthorTestDataBuilder.createAuthorRequest();
 

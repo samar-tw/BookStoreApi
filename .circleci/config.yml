@@ -20,9 +20,6 @@ jobs:
     steps:
       #git pull
       - checkout
-      - run:
-          name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
 
       #setup testing env
       #      - setup_remote_docker:
@@ -52,8 +49,8 @@ jobs:
       # build and push docker image to docker hub
       #      - run: mvn clean compile jib:build -Dimage=EhtiramA/springboot-api:$CIRCLE_BUILD_NUM
 
-      #      # run unit tests!
-      #      - run: mvn test
+       # run unit tests!
+      - run: mvn test
 
       #      # run integration tests!
       #      - run: mvn clean verify -P integration-test
@@ -70,14 +67,16 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash)
 
 
-  unit-test:
+  sonar-cloud:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
     working_directory: ~/book-store
 
     steps:
       - checkout
-      - run: mvn test
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar
 
 
   integration-test:
@@ -96,9 +95,9 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build:
+      - build
+      - sonar-cloud:
           context: SonarCloud
-      - unit-test:
           requires:
             - build
       - integration-test:
