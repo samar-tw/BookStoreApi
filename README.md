@@ -65,7 +65,7 @@ localhost:5050/book
 
 Example Response
 
-````
+````json
 [
 	{
             "id": 1,
@@ -108,7 +108,7 @@ Example Response
 ---
 **POST** /book - create a book (abstract book, this doesn't add book to the shelf)
 
-````
+````json
 {
     "name": "Some Book",
     "price": 1,
@@ -124,7 +124,7 @@ Example Response
 ````
 Example Response
 
-````
+````json
 {
     "id": 1
 }
@@ -133,7 +133,7 @@ Example Response
 
 **PATCH** /book - update a book 
 
-````
+````json
 {
     "id":1,
     "name": "Updated book",
@@ -178,7 +178,7 @@ localhost:5050/author
 
 Example Response
 
-````
+````json
 [
     {
         "id": 1,
@@ -217,7 +217,7 @@ Example Response
 
 **POST** /author - create a new author
 
-````
+````json
 {
     "firstName": "Ehtiram",
     "lastName": "Abdullayev",
@@ -226,7 +226,7 @@ Example Response
 ````
 Example Response
 
-````
+````json
 {
     "id": 1
 }
@@ -243,7 +243,7 @@ localhost:5050/author/1
 
 Example Response
 
-````
+````json
 {
     "id": 1,
     "firstName": "Ehtiram",
@@ -280,7 +280,7 @@ localhost:5050/bookShelf
 
 Example Response
 
-````
+````json
 [
     {
         "id": 1,
@@ -322,7 +322,7 @@ Example Response
 
 **POST** /bookShelf - add a new book to the shelf in store, returns id of newly created book
 
-````
+````json
 {
     "bookId": 2,
     "isbn": 9780134550107
@@ -330,7 +330,7 @@ Example Response
 ````
 Example Response
 
-````
+````json
 {
     "id": 1
 }
@@ -339,14 +339,14 @@ Example Response
 
 **POST** /bookShelf/book/name - search the book with the given name in request body
 
-````
+````json
 {
     "bookName": "que"
 }
 ````
 Example Response
 
-````
+````json
 {
     "bookStocks": [
         {
@@ -391,7 +391,7 @@ Example Response
 
 **PATCH** /bookShelf - update a book in the shelf  
 
-````
+````json
 {
 	"id":1,
 	"isbn":9781402894626
