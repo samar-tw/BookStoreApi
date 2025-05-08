@@ -54,6 +54,10 @@ the system.
 
 ## API
 
+### Swagger UI
+
+Access swagger at: http://localhost:5050/swagger-ui.html
+
 ### Abstract book endpoints
 **GET** /book - get all books (abstract book for adding to shelf later)
 
